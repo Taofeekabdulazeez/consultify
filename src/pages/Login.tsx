@@ -1,3 +1,12 @@
+import { styled } from "styled-components";
+
 export default function Login() {
-  return <div>Login Page</div>;
+  return <Container>Login</Container>;
 }
+
+const Container = styled.div`
+ background-color: red;
+`
+
+
+
