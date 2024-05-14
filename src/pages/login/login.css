@@ -1,0 +1,123 @@
+:root {
+  --color-primary: #0265dc;
+  --color-primary-tint: #e9f6fe;
+  --color-primary-shade: #0054b6;
+  --color-text: #464646;
+  --color-text-light: #6d6d6d;
+  --color-text-dark: #222222;
+  --color-background: #fdfdfd;
+  --color-white: #ffffff;
+  --color-gray-50: #ffffff;
+  --color-gray-75: #fdfdfd;
+  --color-gray-100: #f8f8f8;
+}
+
+/* this will serve as the body of the page */
+.page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--color-primary-tint);
+}
+
+.container {
+  align-items: center;
+  background-color: var(--color-background);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 5rem;
+}
+form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+input {
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  border: 1px solid var(--color-primary);
+  border-radius: 5px;
+}
+.toggle-password {
+  position: absolute;
+  right: 40%;
+  bottom: 43%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.toggle-password i {
+  color: #0054b6;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 2.2rem;
+}
+
+.seperator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.seperator span {
+  padding: 0 10px;
+}
+
+.seperator::before,
+.seperator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid black;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.icon-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-background);
+  margin: 0 10px;
+}
+
+.icon-circle i {
+  font-size: 1.5rem;
+  color: #222222;
+}
