@@ -4,9 +4,23 @@
   padding: 0;
 }
 
-html {
-  font-size: 62.5%;
+:root {
+  --color-primary: #0265dc;
+  --color-primary-tint: #e9f6fe;
+  --color-primary-shade: #0054b6;
+  --color-text: #464646;
+  --color-text-light: #6d6d6d;
+  --color-text-dark: #222222;
+  --color-background: #fdfdfd;
+  --color-white: #ffffff;
 }
 
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
 
-
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-white);
+}

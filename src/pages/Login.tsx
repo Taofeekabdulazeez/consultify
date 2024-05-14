@@ -4,9 +4,4 @@ export default function Login() {
   return <Container>Login</Container>;
 }
 
-const Container = styled.div`
- background-color: red;
-`
-
-
-
+const Container = styled.div``;
