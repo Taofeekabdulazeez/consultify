@@ -13,6 +13,9 @@
   --color-text-dark: #222222;
   --color-background: #fdfdfd;
   --color-white: #ffffff;
+  --color-gray-50: #ffffff;
+  --color-gray-75: #fdfdfd;
+  --color-gray-100: #f8f8f8;
 }
 
 html {
