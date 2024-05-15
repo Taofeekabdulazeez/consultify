@@ -71,47 +71,6 @@ export default function Schedules() {
             </FlexRol>
           );
         })}
-        {/* <Span>MON</Span>
-        <InputFlex>
-          <div>
-            <Select>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-            </Select>
-            <Select>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-            </Select>
-          </div>
-          <div>
-            <Select>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-            </Select>
-            <Select>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-              <option>9:00</option>
-            </Select>
-          </div>
-        </InputFlex>
-        <Button>
-          <LuPlus size={20} />
-        </Button>
-        <Button>
-          <MdClose size={20} />
-        </Button> */}
       </GridCol>
     </Container>
   );
