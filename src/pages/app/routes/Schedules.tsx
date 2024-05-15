@@ -1,3 +1,135 @@
+import { LuPlus } from "react-icons/lu";
+import { MdClose } from "react-icons/md";
+import styled from "styled-components";
+
+const schedules = [
+  {
+    mon: [{ from: "09:00", to: "09:30" }],
+    tue: [
+      { from: "09:30", to: "09:30" },
+      { from: "10:30", to: "11:00" },
+    ],
+    wed: [
+      { from: "09:30", to: "09:30" },
+      { from: "10:30", to: "11:00" },
+    ],
+    thu: [{ from: "09:30", to: "09:30" }],
+    fri: [{ from: "09:30", to: "09:30" }],
+    sat: [{ from: "09:30", to: "09:30" }],
+    sun: [{ from: "09:30", to: "09:00" }],
+  },
+];
+
 export default function Schedules() {
-  return <div>Schedules</div>;
+  return (
+    <Container>
+      <Heading>Weekly hours</Heading>
+      <GridCol>
+        <FlexRol>
+          <CheckBox type="checkbox" />
+          <Span>MON</Span>
+          <InputFlex>
+            <div>
+              <Select>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+              </Select>
+              <Select>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+              </Select>
+            </div>
+            <div>
+              <Select>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+              </Select>
+              <Select>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+                <option>9:00</option>
+              </Select>
+            </div>
+          </InputFlex>
+          <Button>
+            <LuPlus size={20} />
+          </Button>
+          <Button>
+            <MdClose size={20} />
+          </Button>
+        </FlexRol>
+      </GridCol>
+    </Container>
+  );
 }
+
+const Container = styled.div`
+  background-color: var(--color-gray-50);
+  padding: 2.4rem;
+  width: 60rem;
+`;
+
+const GridCol = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-block: 3rem;
+`;
+
+const FlexRol = styled.div`
+  display: flex;
+  /* align-items: center; */
+  gap: 3rem;
+  /* justify-content: space-between; */
+`;
+
+const CheckBox = styled.input`
+  height: 2rem;
+  aspect-ratio: 1/1;
+  accent-color: var(--color-primary);
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const Select = styled.select`
+  height: 4rem;
+  width: 8rem;
+`;
+
+const Heading = styled.h2``;
+
+const Button = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  border: 0;
+  background: 0;
+
+  &:hover {
+    background-color: var(--color-gray-100);
+  }
+`;
+
+const Span = styled.span`
+  font-weight: 600;
+  font-size: 1.2rem;
+`;
+
+const InputFlex = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
