@@ -5,70 +5,113 @@ import styled from "styled-components";
 const schedules = [
   {
     mon: [{ from: "09:00", to: "09:30" }],
+  },
+  {
     tue: [
       { from: "09:30", to: "09:30" },
       { from: "10:30", to: "11:00" },
     ],
+  },
+  {
     wed: [
       { from: "09:30", to: "09:30" },
       { from: "10:30", to: "11:00" },
     ],
+  },
+  {
     thu: [{ from: "09:30", to: "09:30" }],
+  },
+  {
     fri: [{ from: "09:30", to: "09:30" }],
+  },
+  {
     sat: [{ from: "09:30", to: "09:30" }],
+  },
+  {
     sun: [{ from: "09:30", to: "09:00" }],
   },
 ];
+
+// console.log(schedules[0]["fri"]);
 
 export default function Schedules() {
   return (
     <Container>
       <Heading>Weekly hours</Heading>
       <GridCol>
-        <FlexRol>
-          <CheckBox type="checkbox" />
-          <Span>MON</Span>
-          <InputFlex>
-            <div>
-              <Select>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-              </Select>
-              <Select>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-              </Select>
-            </div>
-            <div>
-              <Select>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-              </Select>
-              <Select>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-                <option>9:00</option>
-              </Select>
-            </div>
-          </InputFlex>
-          <Button>
-            <LuPlus size={20} />
-          </Button>
-          <Button>
-            <MdClose size={20} />
-          </Button>
-        </FlexRol>
+        {schedules.map((schedule, index) => {
+          const [day] = Object.keys(schedule);
+
+          return (
+            <FlexRol key={index}>
+              <CheckBox type="checkbox" />
+              <Span>{day}</Span>
+              <InputFlex>
+                {schedule[day].map((day) => {
+                  console.log(day);
+                  return (
+                    <div>
+                      <Select>
+                        <option>{day.from}</option>
+                      </Select>
+                      <Span>-</Span>
+                      <Select>
+                        <option>{day.to}</option>
+                      </Select>
+                    </div>
+                  );
+                })}
+              </InputFlex>
+              <Button>
+                <MdClose size={20} />
+              </Button>
+              <Button>
+                <LuPlus size={20} />
+              </Button>
+            </FlexRol>
+          );
+        })}
+        {/* <Span>MON</Span>
+        <InputFlex>
+          <div>
+            <Select>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+            </Select>
+            <Select>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+            </Select>
+          </div>
+          <div>
+            <Select>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+            </Select>
+            <Select>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+              <option>9:00</option>
+            </Select>
+          </div>
+        </InputFlex>
+        <Button>
+          <LuPlus size={20} />
+        </Button>
+        <Button>
+          <MdClose size={20} />
+        </Button> */}
       </GridCol>
     </Container>
   );
@@ -84,10 +127,12 @@ const GridCol = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   margin-block: 3rem;
+  gap: 3rem;
 `;
 
 const FlexRol = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 3rem 1fr auto auto;
   /* align-items: center; */
   gap: 3rem;
   /* justify-content: space-between; */
@@ -106,6 +151,9 @@ const CheckBox = styled.input`
 const Select = styled.select`
   height: 4rem;
   width: 8rem;
+  margin-inline: 1rem;
+  border: 0.1rem solid #777;
+  border-radius: 3px;
 `;
 
 const Heading = styled.h2``;
@@ -113,6 +161,7 @@ const Heading = styled.h2``;
 const Button = styled.button`
   display: inline-flex;
   align-items: center;
+  height: 3rem;
   justify-content: center;
   padding: 1.2rem;
   border: 0;
@@ -126,6 +175,7 @@ const Button = styled.button`
 const Span = styled.span`
   font-weight: 600;
   font-size: 1.2rem;
+  text-transform: uppercase;
 `;
 
 const InputFlex = styled.div`
