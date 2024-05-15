@@ -33,28 +33,41 @@
 .buttons {
   margin-top: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
+  background-color: #F0F0F2;
 }
-
-.buttons button {
-  margin: 0 10px;
-  padding: 5px 10px;
+.buttons .signup{
+  padding: 10px 50px;
+  border-radius: 10px;
   border: none;
-  border-radius: 5px;
+  align-items: flex-end;
+  margin: 3px;
+  background-color: white;
+  flex: 1;
 }
 
-h1 {
+.signin{
+  flex: 1;
+  background-color: transparent;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 50px;
+  border: none;
+}
+
+.container h1 {
   text-align: center;
   font-size: 5rem;
 }
-form {
+ .container form {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-input {
+ .container form input {
   margin: 10px;
   padding: 10px;
   width: 300px;
@@ -72,12 +85,12 @@ input {
   color: #0054b6;
 }
 
-button {
+.submit {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: var(--color-primary);
-  color: var(--color-text);
+  color: #fff;
   cursor: pointer;
   font-size: 2.2rem;
 }
@@ -113,11 +126,12 @@ button {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: var(--color-background);
+  background-color: #F0F0F2;
   margin: 0 10px;
 }
 
 .icon-circle i {
   font-size: 1.5rem;
   color: #222222;
+  cursor: pointer;
 }

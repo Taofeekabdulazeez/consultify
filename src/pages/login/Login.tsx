@@ -7,7 +7,10 @@ export default function Login() {
         <h1>Welcome</h1>
         <div className="buttons">
           <button className="signup">Sign Up</button>
-          <button className="signin">Sign In</button>
+          <div>
+            <button className="signin">Sign In</button>
+          </div>
+          
         </div>
         <form>
           <input type="email" placeholder="Email Address" />
@@ -15,7 +18,9 @@ export default function Login() {
           <span className="toggle-password">
             <i className="bx bx-hide"></i>
           </span>
-          <button type="submit">Sign Up</button>
+          <button className="submit" type="submit">
+            Sign Up
+          </button>
         </form>
         <div className="seperator">
           <span>OR</span>
