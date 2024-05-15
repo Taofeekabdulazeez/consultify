@@ -80,8 +80,8 @@
 
 .toggle-password {
   position: absolute;
-  right: 40%;
-  bottom: 41.5%;
+  left: 85%;
+  top: 57%;
   transform: translateY(-50%);
   cursor: pointer;
 }

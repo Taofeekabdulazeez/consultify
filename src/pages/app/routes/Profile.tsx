@@ -10,7 +10,7 @@ export default function Profile() {
       </div>
       <form className="form">
         <label htmlFor="FullName">Full Name: </label>
-        <input type="text" id="FullName" name="FullName" />
+        <input className="name" type="text" id="FullName" name="FullName" />
         <label htmlFor="PhoneNumber">Phone Number: </label>
         <input type="tel" id="PhoneNumber" name="PhoneNumber" />
         <label htmlFor="Email">Email Address: </label>
