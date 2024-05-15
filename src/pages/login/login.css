@@ -62,7 +62,7 @@
   font-size: 5rem;
 }
  .container form {
-  margin-top: 1rem;
+  margin-top: 1rem; 
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

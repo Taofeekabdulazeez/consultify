@@ -1,0 +1,83 @@
+:root {
+  --color-primary: #0265dc;
+  --color-primary-tint: #e9f6fe;
+  --color-primary-shade: #0054b6;
+  --color-text: #464646;
+  --color-text-light: #6d6d6d;
+  --color-text-dark: #222222;
+  --color-background: #fdfdfd;
+  --color-white: #ffffff;
+  --color-gray-50: #ffffff;
+  --color-gray-75: #fdfdfd;
+  --color-gray-100: #f8f8f8;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative; 
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.change, .delete {
+  background-color: var(--color-primary);
+  color: white; 
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.change:hover{
+    background-color: var(--color-primary-tint);
+    color: var(--color-text-dark);
+}
+.delete {
+  background-color: #F0F0F2; 
+  color: red; 
+  margin-left: 1rem;
+}
+.delete:hover{
+    background-color: var(--color-primary-tint);
+    color: var(--color-text-dark);
+}
+.form {
+  margin-top: 2rem;
+}
+
+.form label {
+  font-size: 1.5rem;
+}
+
+.form input {
+  width: 100%;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.save {
+  background-color: #F0F0F2; 
+  color: var(--color-text);
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+.save:hover{
+    background-color: var(--color-primary-shade);
+    color: #ffffff;
+}
