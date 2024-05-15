@@ -25,25 +25,25 @@
 .container {
   align-items: center;
   background-color: var(--color-background);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
 .buttons {
-  margin-top: 10px;
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 1rem;
   background-color: #F0F0F2;
 }
 .buttons .signup{
-  padding: 10px 50px;
-  border-radius: 10px;
+  padding: 1rem 5rem;
+  border-radius: 1rem;
   border: none;
   align-items: flex-end;
-  margin: 3px;
+  margin: 0.3rem;
   background-color: white;
   flex: 1;
 }
@@ -51,9 +51,9 @@
 .signin{
   flex: 1;
   background-color: transparent;
-  border-radius: 10px;
+  border-radius: 1rem;
   text-align: center;
-  padding: 10px 50px;
+  padding: 1rem 5rem;
   border: none;
 }
 
@@ -62,33 +62,38 @@
   font-size: 5rem;
 }
  .container form {
-  margin-top: 10px;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.5rem;
 }
  .container form input {
-  margin: 10px;
-  padding: 10px;
-  width: 300px;
-  border: 1px solid var(--color-primary);
-  border-radius: 5px;
+  margin: 1rem;
+  padding: 1rem;
+  width: 30rem;
+  border: 0.1rem solid var(--color-primary);
+  border-radius: 0.5rem;
 }
+.container form input:focus{
+  outline-color: var(--color-primary-shade);
+}
+
 .toggle-password {
   position: absolute;
   right: 40%;
-  bottom: 42.5%;
+  bottom: 41.5%;
   transform: translateY(-50%);
   cursor: pointer;
 }
 .toggle-password i {
   color: #0054b6;
+  font-size: 1.8rem;
 }
 
 .submit {
-  padding: 10px 20px;
+  padding: 1rem 2rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 1rem;
   background-color: var(--color-primary);
   color: #fff;
   cursor: pointer;
@@ -99,35 +104,37 @@
   display: flex;
   align-items: center;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .seperator span {
-  padding: 0 10px;
+  padding: 0 1rem;
 }
 
 .seperator::before,
 .seperator::after {
   content: "";
   flex: 1;
-  border-bottom: 1px solid black;
+  border-bottom: 0.1rem solid black;
 }
 
 .social-icons {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 2rem;
 }
-
+.icon-circle:hover{
+  background-color: #0265dc;
+}
 .icon-circle {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   background-color: #F0F0F2;
-  margin: 0 10px;
+  margin: 0 1rem;
 }
 
 .icon-circle i {
