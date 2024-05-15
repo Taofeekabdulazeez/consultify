@@ -12,7 +12,7 @@ export default function Aside() {
 }
 
 const StyledAside = styled.aside`
-  background-color: var(--color-gray-75);
+  background-color: var(--color-gray-50);
   padding: 1.2rem;
   grid-row: 1/-1;
 `;

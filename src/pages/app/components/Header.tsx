@@ -5,7 +5,7 @@ export default function Header() {
 }
 
 const StyledHeader = styled.header`
-  background-color: var(--color-gray-100);
+  background-color: var(--color-gray-75);
   height: 7rem;
   font-size: 2rem;
   text-align: center;
