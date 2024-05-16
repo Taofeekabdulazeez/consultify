@@ -12,7 +12,7 @@ const navLinks = [
     to: "appointments",
     Icon: MdOutlineVideoCameraFront,
   },
-  { label: "Schedules", to: "schedules", Icon: GrSchedules },
+  { label: "Availability", to: "schedules", Icon: GrSchedules },
   { label: "My Earnings", to: "earnings", Icon: SlWallet },
 ];
 

@@ -4,32 +4,72 @@ import styled from "styled-components";
 
 const schedules = [
   {
-    mon: [{ from: "09:00", to: "09:30" }],
+    day: "mon",
+    availableHours: [{ from: "09:00", to: "09:30" }],
   },
   {
-    tue: [
-      { from: "09:30", to: "09:30" },
+    day: "tue",
+    availableHours: [
+      { from: "09:00", to: "09:30" },
       { from: "10:30", to: "11:00" },
     ],
   },
   {
-    wed: [
-      { from: "09:30", to: "09:30" },
+    day: "wed",
+    availableHours: [
+      { from: "09:00", to: "09:30" },
       { from: "10:30", to: "11:00" },
     ],
   },
   {
-    thu: [{ from: "09:30", to: "09:30" }],
+    day: "thu",
+    availableHours: [{ from: "09:30", to: "09:30" }],
   },
   {
-    fri: [{ from: "09:30", to: "09:30" }],
+    day: "fri",
+    availableHours: [{ from: "09:30", to: "09:30" }],
   },
   {
-    sat: [{ from: "09:30", to: "09:30" }],
+    day: "sat",
+    availableHours: [{ from: "09:30", to: "09:30" }],
   },
   {
-    sun: [{ from: "09:30", to: "09:00" }],
+    day: "sun",
+    availableHours: [{ from: "09:30", to: "09:00" }],
   },
+];
+
+const timeStamps = [
+  "08:30",
+  "09:00",
+  "09:30",
+  "10:00",
+  "10:30",
+  "11:00",
+  "11:30",
+  "12:00",
+  "12:30",
+  "13:00",
+  "13:30",
+  "14:00",
+  "14:30",
+  "15:00",
+  "15:30",
+  "16:00",
+  "16:30",
+  "17:00",
+  "17:30",
+  "18:00",
+  "18:30",
+  "19:00",
+  "19:30",
+  "20:00",
+  "20:30",
+  "21:00",
+  "21:30",
+  "22:00",
+  "22:30",
+  "23:00",
 ];
 
 // console.log(schedules[0]["fri"]);
@@ -40,23 +80,26 @@ export default function Schedules() {
       <Heading>Weekly hours</Heading>
       <GridCol>
         {schedules.map((schedule, index) => {
-          const [day] = Object.keys(schedule);
+          const { day, availableHours } = schedule;
 
           return (
             <FlexRol key={index}>
               <CheckBox type="checkbox" />
               <Span>{day}</Span>
               <InputFlex>
-                {schedule[day].map((day) => {
-                  console.log(day);
+                {availableHours.map((hour) => {
                   return (
                     <div>
-                      <Select>
-                        <option>{day.from}</option>
+                      <Select value={hour.from}>
+                        {timeStamps.map((timeStamp) => (
+                          <option>{timeStamp}</option>
+                        ))}
                       </Select>
                       <Span>-</Span>
-                      <Select>
-                        <option>{day.to}</option>
+                      <Select value={hour.to}>
+                        {timeStamps.map((timeStamp) => (
+                          <option>{timeStamp}</option>
+                        ))}
                       </Select>
                     </div>
                   );
