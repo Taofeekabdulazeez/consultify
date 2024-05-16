@@ -5,9 +5,12 @@
 }
 
 :root {
-  --color-primary: #0265dc;
-  --color-primary-tint: #e9f6fe;
+  /* --color-primary: #0265dc; */
+  /* --color-primary-tint: #e9f6fe; */
   --color-primary-shade: #0054b6;
+  --color-primary: #7326d3;
+  --color-primary-tint: #f8f2fd;
+  --color-primary-shade: #470c94;
   --color-text: #464646;
   --color-text-light: #6d6d6d;
   --color-text-dark: #222222;
