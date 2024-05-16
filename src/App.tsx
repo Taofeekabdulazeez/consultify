@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
+import Login from "./pages/loginv2/Login";
 import AppLayout from "./pages/app/components/Applayout";
 import Appointments from "./pages/app/routes/Appointments";
 import Schedules from "./pages/app/routes/Schedules";
