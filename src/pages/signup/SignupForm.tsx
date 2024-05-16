@@ -1,7 +1,11 @@
 import { FaFacebookF, FaGithub, FaGoogle, FaLinkedinIn } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useSignup } from "./useSignup";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const StyledForm = styled.form`
   display: grid;
@@ -66,13 +70,30 @@ const Error = styled.p`
   font-size: 1.2rem;
   font-weight: 500;
   margin-top: 1rem;
-  color: var(--color-red-900);
+  color: #d31510;
 `;
 
+type SignupData = {
+  email: string;
+  password: string;
+};
+
 function SignupForm() {
-  const navigate = useNavigate();
+  const [hidePassword, setHidePassword] = useState(true);
+  const { signup, isLoading } = useSignup();
+  const { register, formState, handleSubmit, reset } = useForm<SignupData>({});
+  const { errors } = formState;
+
+  function onSubmit({ email, password }: SignupData) {
+    signup(
+      { email, password },
+      {
+        onSettled: () => reset(),
+      }
+    );
+  }
   return (
-    <StyledForm onSubmit={(event) => event.preventDefault()} autoComplete="off">
+    <StyledForm onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <Tabs>
         <Tab to="/login">Login</Tab>
         <Tab to="/signup" className="active">
@@ -82,15 +103,53 @@ function SignupForm() {
       <div>
         <Label>Email address</Label>
         <InputWrapper>
-          <Input autoComplete="off" />
+          <Input
+            autoComplete="off"
+            disabled={isLoading}
+            {...register("email", {
+              required: "This field is required",
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: "Please provide a valid email address",
+              },
+            })}
+          />
         </InputWrapper>
-        {false && (
+        {errors.email && (
           <Error>
-            <MdErrorOutline size={14} /> Please provide a valid email address
+            <MdErrorOutline size={14} /> {errors.email.message}
           </Error>
         )}
       </div>
-      <ButtonLogin onClick={() => navigate("/app")}>Signup</ButtonLogin>
+      <div>
+        <Label>Password</Label>
+        <InputWrapper>
+          <Input
+            autoComplete="off"
+            type={hidePassword ? "password" : "text"}
+            {...register("password", {
+              required: "This field is required",
+              minLength: {
+                value: 4,
+                message: "Password needs a minimum of 4 characters",
+              },
+            })}
+          />
+          <ButtonToggle
+            onClick={() => {
+              setHidePassword((show) => !show);
+            }}
+          >
+            {hidePassword ? <FiEye size={20} /> : <FiEyeOff size={20} />}
+          </ButtonToggle>
+        </InputWrapper>
+        {errors.password && (
+          <Error>
+            <MdErrorOutline size={14} /> {errors.password.message}
+          </Error>
+        )}
+      </div>
+      <ButtonLogin>Signup</ButtonLogin>
       <Seperator className="seperator">
         <span>OR</span>
       </Seperator>
@@ -180,4 +239,13 @@ const SocialLink = styled.a`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const ButtonToggle = styled.span`
+  background: none;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `;

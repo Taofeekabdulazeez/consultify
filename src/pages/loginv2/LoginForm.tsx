@@ -2,8 +2,9 @@ import { useState } from "react";
 import { FaFacebookF, FaGithub, FaGoogle, FaLinkedinIn } from "react-icons/fa";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { MdErrorOutline } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useLogin } from "./useLogin";
 
 const StyledForm = styled.form`
   display: grid;
@@ -81,10 +82,21 @@ const Error = styled.p`
 `;
 
 function LoginForm() {
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("tao@gmail.com");
+  const [password, setPassword] = useState("12345");
+  const { login, isLoading } = useLogin();
+
   const [hidePassword, setHidePassword] = useState(true);
   return (
-    <StyledForm onSubmit={(event) => event.preventDefault()} autoComplete="off">
+    <StyledForm
+      method="GET"
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (!email || !password) return;
+        login({ email, password });
+      }}
+      autoComplete="off"
+    >
       <Tabs>
         <Tab to="/login" className="active">
           Login
@@ -94,7 +106,12 @@ function LoginForm() {
       <div>
         <Label>Email address</Label>
         <InputWrapper>
-          <Input autoComplete="off" />
+          <Input
+            disabled={isLoading}
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            autoComplete="off"
+          />
         </InputWrapper>
         {false && (
           <Error>
@@ -105,7 +122,12 @@ function LoginForm() {
       <div>
         <Label>Password</Label>
         <InputWrapper>
-          <Input autoComplete="off" type={hidePassword ? "password" : "text"} />
+          <Input
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            autoComplete="off"
+            type={hidePassword ? "password" : "text"}
+          />
           <ButtonToggle
             onClick={() => {
               setHidePassword((show) => !show);
@@ -120,7 +142,7 @@ function LoginForm() {
           </Error>
         )}
       </div>
-      <ButtonLogin onClick={() => navigate("/app")}>Login</ButtonLogin>
+      <ButtonLogin type="submit">Login</ButtonLogin>
       <Seperator className="seperator">
         <span>OR</span>
       </Seperator>
