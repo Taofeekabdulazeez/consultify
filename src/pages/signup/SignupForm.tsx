@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { FaFacebookF, FaGithub, FaGoogle, FaLinkedinIn } from "react-icons/fa";
-import { FiEye, FiEyeOff } from "react-icons/fi";
 import { MdErrorOutline } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -60,15 +58,6 @@ const ButtonLogin = styled.button`
   }
 `;
 
-const ButtonToggle = styled.span`
-  background: none;
-  border: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-`;
-
 const Error = styled.p`
   display: flex;
   align-items: center;
@@ -80,16 +69,15 @@ const Error = styled.p`
   color: var(--color-red-900);
 `;
 
-function LoginForm() {
+function SignupForm() {
   const navigate = useNavigate();
-  const [hidePassword, setHidePassword] = useState(true);
   return (
     <StyledForm onSubmit={(event) => event.preventDefault()} autoComplete="off">
       <Tabs>
-        <Tab to="/login" className="active">
-          Login
+        <Tab to="/login">Login</Tab>
+        <Tab to="/signup" className="active">
+          Signup
         </Tab>
-        <Tab to="/signup">Signup</Tab>
       </Tabs>
       <div>
         <Label>Email address</Label>
@@ -102,25 +90,7 @@ function LoginForm() {
           </Error>
         )}
       </div>
-      <div>
-        <Label>Password</Label>
-        <InputWrapper>
-          <Input autoComplete="off" type={hidePassword ? "password" : "text"} />
-          <ButtonToggle
-            onClick={() => {
-              setHidePassword((show) => !show);
-            }}
-          >
-            {hidePassword ? <FiEye size={20} /> : <FiEyeOff size={20} />}
-          </ButtonToggle>
-        </InputWrapper>
-        {false && (
-          <Error>
-            <MdErrorOutline size={14} /> You've entered an incorrect password
-          </Error>
-        )}
-      </div>
-      <ButtonLogin onClick={() => navigate("/app")}>Login</ButtonLogin>
+      <ButtonLogin onClick={() => navigate("/app")}>Signup</ButtonLogin>
       <Seperator className="seperator">
         <span>OR</span>
       </Seperator>
@@ -150,7 +120,7 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default SignupForm;
 
 const Tabs = styled.div`
   display: grid;
@@ -172,7 +142,6 @@ const Tab = styled(Link)`
     background-color: var(--color-gray-50);
   }
 `;
-
 const Seperator = styled.div`
   display: flex;
   align-items: center;
