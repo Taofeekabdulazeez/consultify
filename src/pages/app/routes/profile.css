@@ -87,7 +87,9 @@
  .form input:focus{
   outline-color: var(--color-primary);
  }
-
+.form input:focus::placeholder{
+  color: transparent;
+}
 .save {
   background-color: var(--color-primary); 
   color: white;
