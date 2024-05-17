@@ -1,5 +1,4 @@
 import "./login.css";
-
 export default function Login() {
   return (
     <div className="page-container">
@@ -10,7 +9,6 @@ export default function Login() {
           <div>
             <button className="signin">Sign In</button>
           </div>
-          
         </div>
         <form>
           <input type="email" placeholder="Email Address" />
