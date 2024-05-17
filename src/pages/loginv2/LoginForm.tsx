@@ -5,6 +5,7 @@ import { MdErrorOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useLogin } from "./useLogin";
+import ButtonLoader from "../app/components/ButtonLoader";
 
 const StyledForm = styled.form`
   display: grid;
@@ -82,8 +83,8 @@ const Error = styled.p`
 `;
 
 function LoginForm() {
-  const [email, setEmail] = useState("tao@gmail.com");
-  const [password, setPassword] = useState("12345");
+  const [email, setEmail] = useState("sir@gmail.com");
+  const [password, setPassword] = useState("246810");
   const { login, isLoading } = useLogin();
 
   const [hidePassword, setHidePassword] = useState(true);
@@ -142,7 +143,9 @@ function LoginForm() {
           </Error>
         )}
       </div>
-      <ButtonLogin type="submit">Login</ButtonLogin>
+      <ButtonLogin type="submit">
+        {isLoading ? <ButtonLoader /> : "Login"}
+      </ButtonLogin>
       <Seperator className="seperator">
         <span>OR</span>
       </Seperator>

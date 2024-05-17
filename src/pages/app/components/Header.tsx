@@ -1,7 +1,13 @@
 import styled from "styled-components";
+import Logout from "../../../components/Logout";
 
 export default function Header() {
-  return <StyledHeader>Header</StyledHeader>;
+  return (
+    <StyledHeader>
+      <div>Header</div>
+      <Logout />
+    </StyledHeader>
+  );
 }
 
 const StyledHeader = styled.header`

@@ -13,6 +13,7 @@ import Schedules from "./pages/app/routes/Schedules";
 import Profile from "./pages/app/routes/Profile";
 import Earnings from "./pages/app/routes/Earnings";
 import Signup from "./pages/signup/Signup";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -31,7 +32,14 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
         </Route>
-        <Route path="app" element={<AppLayout />}>
+        <Route
+          path="app"
+          element={
+            <ProtectedRoute>
+              <AppLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Navigate replace to="profile" />} />
           <Route path="appointments" element={<Appointments />} />
           <Route path="schedules" element={<Schedules />} />
