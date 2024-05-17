@@ -3,9 +3,9 @@ import { MdErrorOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useSignup } from "./useSignup";
-import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import ButtonLoader from "../app/components/ButtonLoader";
 
 const StyledForm = styled.form`
   display: grid;
@@ -73,27 +73,22 @@ const Error = styled.p`
   color: #d31510;
 `;
 
-type SignupData = {
-  email: string;
-  password: string;
-};
-
 function SignupForm() {
   const [hidePassword, setHidePassword] = useState(true);
   const { signup, isLoading } = useSignup();
-  const { register, formState, handleSubmit, reset } = useForm<SignupData>({});
-  const { errors } = formState;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  function onSubmit({ email, password }: SignupData) {
-    signup(
-      { email, password },
-      {
-        onSettled: () => reset(),
-      }
-    );
-  }
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+    <StyledForm
+      method="POST"
+      onSubmit={(event) => {
+        event.preventDefault();
+        signup({ email, password });
+        if (!email || !password) return;
+      }}
+      autoComplete="off"
+    >
       <Tabs>
         <Tab to="/login">Login</Tab>
         <Tab to="/signup" className="active">
@@ -104,20 +99,15 @@ function SignupForm() {
         <Label>Email address</Label>
         <InputWrapper>
           <Input
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
             autoComplete="off"
             disabled={isLoading}
-            {...register("email", {
-              required: "This field is required",
-              pattern: {
-                value: /\S+@\S+\.\S+/,
-                message: "Please provide a valid email address",
-              },
-            })}
           />
         </InputWrapper>
-        {errors.email && (
+        {false && (
           <Error>
-            <MdErrorOutline size={14} /> {errors.email.message}
+            <MdErrorOutline size={14} />
           </Error>
         )}
       </div>
@@ -125,15 +115,10 @@ function SignupForm() {
         <Label>Password</Label>
         <InputWrapper>
           <Input
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
             autoComplete="off"
             type={hidePassword ? "password" : "text"}
-            {...register("password", {
-              required: "This field is required",
-              minLength: {
-                value: 4,
-                message: "Password needs a minimum of 4 characters",
-              },
-            })}
           />
           <ButtonToggle
             onClick={() => {
@@ -143,13 +128,13 @@ function SignupForm() {
             {hidePassword ? <FiEye size={20} /> : <FiEyeOff size={20} />}
           </ButtonToggle>
         </InputWrapper>
-        {errors.password && (
+        {false && (
           <Error>
-            <MdErrorOutline size={14} /> {errors.password.message}
+            <MdErrorOutline size={14} />
           </Error>
         )}
       </div>
-      <ButtonLogin>Signup</ButtonLogin>
+      <ButtonLogin>{isLoading ? <ButtonLoader /> : "Signup"}</ButtonLogin>
       <Seperator className="seperator">
         <span>OR</span>
       </Seperator>
