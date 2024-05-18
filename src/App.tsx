@@ -6,14 +6,15 @@ import {
   Routes,
 } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Login from "./pages/loginv2/Login";
+import Login from "./pages/login/Login";
 import AppLayout from "./pages/app/components/Applayout";
 import Appointments from "./pages/app/routes/Appointments";
 import Schedules from "./pages/app/routes/Schedules";
-import Profile from "./pages/app/routes/Profile";
+import Profile from "./pages/app/routes/Profilev2";
 import Earnings from "./pages/app/routes/Earnings";
 import Signup from "./pages/signup/Signup";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./features/authentication/components/ProtectedRoute";
+import Settings from "./pages/app/routes/Settings";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="schedules" element={<Schedules />} />
           <Route path="Profile" element={<Profile />} />
           <Route path="earnings" element={<Earnings />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </BrowserRouter>

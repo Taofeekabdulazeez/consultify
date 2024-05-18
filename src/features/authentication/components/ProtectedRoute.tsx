@@ -1,12 +1,11 @@
 import { ReactNode, useEffect } from "react";
-import supabase from "../services/supabase";
-import { useUser } from "../pages/loginv2/useUser";
 import { useNavigate } from "react-router-dom";
+import { useCurrentUser } from "../hooks/useCurrentUser";
 
 export default function ProtectedRoute({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
   // 1. Load the authenticated user
-  const { isLoading, isAuthenticatedUser } = useUser();
+  const { isLoading, isAuthenticatedUser } = useCurrentUser();
 
   //2. if no authenticated user, redirect to login oage
   useEffect(
@@ -23,19 +22,3 @@ export default function ProtectedRoute({ children }: { children: ReactNode }) {
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export async function getCurrentUser() {
-  const { data: session } = await supabase.auth.getSession();
-
-  if (!session.session) return null;
-
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  console.log(user);
-
-  if (error) throw new Error(error.message);
-
-  return user;
-}

@@ -1,5 +1,5 @@
+import { useLogout } from "../features/authentication/hooks/useLogout";
 import ButtonLoader from "../pages/app/components/ButtonLoader";
-import { useLogout } from "../pages/loginv2/useLogout";
 
 export default function Logout() {
   const { isLoading, logout } = useLogout();

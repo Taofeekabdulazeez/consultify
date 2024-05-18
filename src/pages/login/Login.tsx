@@ -1,43 +1,39 @@
-import "./login.css";
-export default function Login() {
+import styled from "styled-components";
+import LoginForm from "../../features/authentication/components/LoginForm";
+
+const StyledLogin = styled.div`
+  width: 50rem;
+  max-width: 85%;
+  margin-inline: auto;
+  padding: 2.4rem;
+  margin-top: 6rem;
+  border-radius: 23px;
+  background-color: var(--color-gray-50);
+`;
+
+const Heading = styled.h1`
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+`;
+
+const Text = styled.p`
+  font-size: var(--font-size-xxs);
+  font-weight: 500;
+  color: var(--color-gray-600);
+  text-align: center;
+  margin-bottom: 3rem;
+`;
+
+function Login() {
   return (
-    <div className="page-container">
-      <div className="container">
-        <h1>Welcome</h1>
-        <div className="buttons">
-          <button className="signup">Sign Up</button>
-          <div>
-            <button className="signin">Sign In</button>
-          </div>
-        </div>
-        <form>
-          <input type="email" placeholder="Email Address" />
-          <input type="password" id="password" placeholder="Password" />
-          <span className="toggle-password">
-            <i className="bx bx-hide"></i>
-          </span>
-          <button className="submit" type="submit">
-            Sign Up
-          </button>
-        </form>
-        <div className="seperator">
-          <span>OR</span>
-        </div>
-        <div className="social-icons">
-          <div className="icon-circle">
-            <i className="bx bxl-google"></i>
-          </div>
-          <div className="icon-circle">
-            <i className="bx bxl-facebook"></i>
-          </div>
-          <div className="icon-circle">
-            <i className="bx bxl-linkedin"></i>
-          </div>
-          <div className="icon-circle">
-            <i className="bx bxl-github"></i>
-          </div>
-        </div>
-      </div>
-    </div>
+    <StyledLogin>
+      <Heading>Login to your account</Heading>
+      {false && <Text>Please Provide your Login credentials</Text>}
+      <LoginForm />
+    </StyledLogin>
   );
 }
+
+export default Login;

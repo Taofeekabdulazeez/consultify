@@ -1,48 +1,70 @@
-import { CgProfile } from "react-icons/cg";
-import { GrSchedules } from "react-icons/gr";
-import { MdOutlineVideoCameraFront } from "react-icons/md";
-import { SlWallet } from "react-icons/sl";
+import { GoSignOut } from "react-icons/go";
+import { SlEvent, SlWallet } from "react-icons/sl";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useLogout } from "../../../features/authentication/hooks/useLogout";
+import ButtonLoader from "./ButtonLoader";
+import { PiUserLight } from "react-icons/pi";
+import { CiVideoOn } from "react-icons/ci";
+import { TfiSettings } from "react-icons/tfi";
 
 const navLinks = [
-  { label: "Profile", to: "profile", Icon: CgProfile },
+  { label: "Profile", to: "profile", Icon: PiUserLight },
   {
     label: "Appointments",
     to: "appointments",
-    Icon: MdOutlineVideoCameraFront,
+    Icon: CiVideoOn,
   },
-  { label: "Availability", to: "schedules", Icon: GrSchedules },
+  { label: "Availability", to: "schedules", Icon: SlEvent },
   { label: "My Earnings", to: "earnings", Icon: SlWallet },
+  { label: "Settings", to: "settings", Icon: TfiSettings },
 ];
 
 export default function Nav() {
+  const { logout, isLoading } = useLogout();
   return (
     <StyledNav>
-      <StyleLinks>
+      <StyledLinks>
         {navLinks.map(({ label, to, Icon }) => (
           <li key={label}>
-            <StyleLink to={to}>
+            <StyledLink to={to}>
               <Icon size={20} />
               {label}
-            </StyleLink>
+            </StyledLink>
           </li>
         ))}
-      </StyleLinks>
+      </StyledLinks>
+      <StyledLinks>
+        <li>
+          <ButtonLogout onClick={() => logout()} as="button">
+            {isLoading ? (
+              <ButtonLoader />
+            ) : (
+              <>
+                <GoSignOut size={20} />
+                <span style={{ fontWeight: 600 }}>Logout</span>
+              </>
+            )}
+          </ButtonLogout>
+        </li>
+      </StyledLinks>
     </StyledNav>
   );
 }
 
-const StyledNav = styled.nav``;
+const StyledNav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 30dvh;
+`;
 
-const StyleLinks = styled.ul`
+const StyledLinks = styled.ul`
   display: grid;
-  /* align-items: center; */
   list-style: none;
   gap: 1rem;
 `;
 
-const StyleLink = styled(NavLink)`
+const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 1.2rem;
@@ -77,5 +99,24 @@ const StyleLink = styled(NavLink)`
 
   &.active::before {
     display: block;
+  }
+`;
+
+const ButtonLogout = styled.button`
+  border: 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  color: var(--color-gray-700);
+  font-weight: 500 !important;
+  font-size: 1.5rem;
+  padding: 1.2rem 3.2rem;
+  border-radius: 9px;
+  width: 100%;
+
+  &:hover {
+    background-color: #f5f3f3;
+    cursor: pointer;
   }
 `;

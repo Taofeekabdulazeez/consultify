@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SignupForm from "./SignupForm";
+import SignupForm from "../../features/authentication/components/SignupForm";
 
 const StyledSignup = styled.div`
   width: 50rem;

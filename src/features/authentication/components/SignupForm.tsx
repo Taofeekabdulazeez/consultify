@@ -1,11 +1,11 @@
-import { useState } from "react";
 import { FaFacebookF, FaGithub, FaGoogle, FaLinkedinIn } from "react-icons/fa";
-import { FiEye, FiEyeOff } from "react-icons/fi";
 import { MdErrorOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useLogin } from "./useLogin";
-import ButtonLoader from "../app/components/ButtonLoader";
+import { useState } from "react";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import ButtonLoader from "../../../pages/app/components/ButtonLoader";
+import { useSignup } from "../hooks/useSignup";
 
 const StyledForm = styled.form`
   display: grid;
@@ -62,15 +62,6 @@ const ButtonLogin = styled.button`
   }
 `;
 
-const ButtonToggle = styled.span`
-  background: none;
-  border: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-`;
-
 const Error = styled.p`
   display: flex;
   align-items: center;
@@ -79,44 +70,44 @@ const Error = styled.p`
   font-size: 1.2rem;
   font-weight: 500;
   margin-top: 1rem;
-  color: var(--color-red-900);
+  color: #d31510;
 `;
 
-function LoginForm() {
-  const [email, setEmail] = useState("sir@gmail.com");
-  const [password, setPassword] = useState("246810");
-  const { login, isLoading } = useLogin();
-
+function SignupForm() {
   const [hidePassword, setHidePassword] = useState(true);
+  const { signup, isLoading } = useSignup();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <StyledForm
-      method="GET"
+      method="POST"
       onSubmit={(event) => {
         event.preventDefault();
+        signup({ email, password });
         if (!email || !password) return;
-        login({ email, password });
       }}
       autoComplete="off"
     >
       <Tabs>
-        <Tab to="/login" className="active">
-          Login
+        <Tab to="/login">Login</Tab>
+        <Tab to="/signup" className="active">
+          Signup
         </Tab>
-        <Tab to="/signup">Signup</Tab>
       </Tabs>
       <div>
         <Label>Email address</Label>
         <InputWrapper>
           <Input
-            disabled={isLoading}
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             autoComplete="off"
+            disabled={isLoading}
           />
         </InputWrapper>
         {false && (
           <Error>
-            <MdErrorOutline size={14} /> Please provide a valid email address
+            <MdErrorOutline size={14} />
           </Error>
         )}
       </div>
@@ -139,13 +130,11 @@ function LoginForm() {
         </InputWrapper>
         {false && (
           <Error>
-            <MdErrorOutline size={14} /> You've entered an incorrect password
+            <MdErrorOutline size={14} />
           </Error>
         )}
       </div>
-      <ButtonLogin type="submit">
-        {isLoading ? <ButtonLoader /> : "Login"}
-      </ButtonLogin>
+      <ButtonLogin>{isLoading ? <ButtonLoader /> : "Signup"}</ButtonLogin>
       <Seperator className="seperator">
         <span>OR</span>
       </Seperator>
@@ -175,7 +164,7 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default SignupForm;
 
 const Tabs = styled.div`
   display: grid;
@@ -197,7 +186,6 @@ const Tab = styled(Link)`
     background-color: var(--color-gray-50);
   }
 `;
-
 const Seperator = styled.div`
   display: flex;
   align-items: center;
@@ -236,4 +224,13 @@ const SocialLink = styled.a`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const ButtonToggle = styled.span`
+  background: none;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `;
