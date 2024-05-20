@@ -15,22 +15,17 @@ import Earnings from "./pages/app/routes/Earnings";
 import Signup from "./pages/signup/Signup";
 import ProtectedRoute from "./features/authentication/components/ProtectedRoute";
 import Settings from "./pages/app/routes/Settings";
+import Booking from "./pages/booking/Booking";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="home" element={<Home />} />
-        <Route
-          path="/"
-          element={
-            <div>
-              <Outlet />
-            </div>
-          }
-        >
+        <Route path="/" element={<Outlet />}>
+          <Route path="home" element={<Home />} />
           <Route index element={<Navigate replace to="login" />} />
           <Route path="login" element={<Login />} />
+          <Route path="booking" element={<Booking />} />
           <Route path="signup" element={<Signup />} />
         </Route>
         <Route
