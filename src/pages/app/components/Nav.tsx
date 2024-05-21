@@ -61,18 +61,18 @@ const StyledNav = styled.nav`
 const StyledLinks = styled.ul`
   display: grid;
   list-style: none;
-  gap: 1rem;
+  gap: 10px;
 `;
 
 const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 12px;
   color: var(--color-gray-700);
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 15px;
   text-decoration: none;
-  padding: 1.2rem 3.2rem;
+  padding: 12px 32px;
   border-radius: 9px;
   position: relative;
   overflow: hidden;
@@ -86,7 +86,7 @@ const StyledLink = styled(NavLink)`
     display: none;
     background-color: var(--color-primary);
     height: 100%;
-    width: 0.4rem;
+    width: 4px;
     position: absolute;
     left: 0;
   }
@@ -107,11 +107,11 @@ const ButtonLogout = styled.button`
   background: none;
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 12px;
   color: var(--color-gray-700);
   font-weight: 500 !important;
-  font-size: 1.5rem;
-  padding: 1.2rem 3.2rem;
+  font-size: 15px;
+  padding: 12px 32px;
   border-radius: 9px;
   width: 100%;
 

@@ -2,19 +2,19 @@ import styled from "styled-components";
 import SignupForm from "../../features/authentication/components/SignupForm";
 
 const StyledSignup = styled.div`
-  width: 50rem;
+  width: 500px;
   max-width: 85%;
   margin-inline: auto;
-  padding: 2.4rem;
-  margin-top: 6rem;
+  padding: 24px;
+  margin-top: 60px;
   border-radius: 23px;
   background-color: var(--color-gray-50);
 `;
 
 const Heading = styled.h1`
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
   text-align: center;
 `;
 
@@ -23,7 +23,7 @@ const Text = styled.p`
   font-weight: 500;
   color: var(--color-gray-600);
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 30px;
 `;
 
 export default function Signup() {

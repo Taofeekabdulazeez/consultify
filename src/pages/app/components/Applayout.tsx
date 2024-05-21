@@ -20,7 +20,7 @@ export default function AppLayout() {
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: 24rem 1fr;
+  grid-template-columns: 240px 1fr;
   grid-template-rows: auto 1fr;
   height: 100dvh;
   background-color: var(--color-gray-100);

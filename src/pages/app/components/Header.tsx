@@ -20,9 +20,9 @@ export default function Header() {
 
 const StyledHeader = styled.header`
   background-color: var(--color-gray-75);
-  padding: 1.2rem;
-  /* height: 7rem; */
-  font-size: 2rem;
+  padding: 8px;
+  height: 4rem;
+  font-size: 20px;
   text-align: center;
 `;
 
@@ -32,11 +32,11 @@ const Flex = styled.div`
   align-items: center;
   gap: 1rem;
   margin-left: auto;
-  padding-inline: 1.2rem;
+  padding-inline: 12px;
 `;
 
 const PseudoImg = styled.div`
-  height: 5rem;
+  height: 30px;
   aspect-ratio: 1/1;
   background-color: var(--color-primary-tint);
   display: flex;
@@ -45,12 +45,12 @@ const PseudoImg = styled.div`
   border-radius: 50%;
 
   & span {
-    font-size: 2.4rem;
+    font-size: 24px;
     font-weight: 600;
     text-transform: uppercase;
   }
 `;
 
 const Email = styled.p`
-  font-size: 1.6rem;
+  font-size: 16px;
 `;

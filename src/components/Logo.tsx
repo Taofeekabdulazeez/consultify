@@ -5,8 +5,8 @@ export default function Logo() {
 }
 
 const StyledLogo = styled.div`
-  height: 8rem;
-  font-size: 2rem;
+  height: 80px;
+  font-size: 20px;
   text-align: center;
   font-style: italic;
   font-weight: 600;

@@ -9,12 +9,12 @@ import { useSignup } from "../hooks/useSignup";
 
 const StyledForm = styled.form`
   display: grid;
-  gap: 2rem;
+  gap: 20px;
 `;
 
 const Label = styled.label`
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 15px;
   font-weight: 500;
   margin-bottom: 0.4rem;
 `;
@@ -22,11 +22,11 @@ const Label = styled.label`
 const InputWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
-  border: 0.2rem solid var(--color-gray-100);
+  border: 2px solid var(--color-gray-100);
   background-color: var(--color-gray-75);
   border-radius: 9px;
   overflow: hidden;
-  padding: 0.8rem 1.2rem;
+  padding: 8px 12px;
 
   &:focus-within {
     border-color: var(--color-primary);
@@ -40,7 +40,7 @@ const Input = styled.input`
   height: inherit;
   color: var(--color-text);
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 16px;
 `;
 
 const ButtonLogin = styled.button`
@@ -49,12 +49,12 @@ const ButtonLogin = styled.button`
   align-items: center;
   justify-content: center;
   background-color: var(--color-primary);
-  font-size: 1.5rem;
-  padding: 1.2rem;
+  font-size: 15px;
+  padding: 12px;
   font-weight: 600;
   color: var(--color-primary-tint);
   border-radius: 9px;
-  margin-top: 1.8rem;
+  margin-top: 18px;
 
   &:hover {
     background-color: var(--color-primary-shade);
@@ -62,17 +62,25 @@ const ButtonLogin = styled.button`
   }
 `;
 
+const ButtonToggle = styled.span`
+  background: none;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`;
+
 const Error = styled.p`
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 6px;
   /* font-size: var(--font-size-xxxs); */
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 500;
-  margin-top: 1rem;
-  color: #d31510;
+  margin-top: 10px;
+  color: var(--color-red-900);
 `;
-
 function SignupForm() {
   const [hidePassword, setHidePassword] = useState(true);
   const { signup, isLoading } = useSignup();
@@ -171,12 +179,12 @@ const Tabs = styled.div`
   grid-template-columns: 1fr 1fr;
   border-radius: 23px;
   background-color: var(--color-gray-100);
-  padding: 0.4rem;
+  padding: 4px;
 `;
 
 const Tab = styled(Link)`
-  padding: 1rem;
-  font-size: 1.6rem;
+  padding: 10px;
+  font-size: 16px;
   font-weight: 500;
   text-align: center;
   border-radius: 23px;
@@ -186,6 +194,7 @@ const Tab = styled(Link)`
     background-color: var(--color-gray-50);
   }
 `;
+
 const Seperator = styled.div`
   display: flex;
   align-items: center;
@@ -193,14 +202,14 @@ const Seperator = styled.div`
   /* margin-top: 2rem; */
 
   & span {
-    padding: 0 1rem;
+    padding: 0 10px;
   }
 
   &::before,
   &::after {
     content: "";
     flex: 1;
-    border-bottom: 0.1rem solid black;
+    border-bottom: 1px solid black;
   }
 `;
 
@@ -208,7 +217,7 @@ const SocialLinks = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 10px;
   list-style: none;
 `;
 
@@ -216,7 +225,7 @@ const SocialLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 4rem;
+  height: 40px;
   aspect-ratio: 1/1;
   border-radius: 50%;
   background-color: #eee;
@@ -224,13 +233,4 @@ const SocialLink = styled.a`
   &:hover {
     cursor: pointer;
   }
-`;
-
-const ButtonToggle = styled.span`
-  background: none;
-  border: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
 `;

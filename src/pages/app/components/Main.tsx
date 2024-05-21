@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import styled from "styled-components";
 
 const StyledMain = styled.main`
-  padding: 3.2rem;
+  padding: 32px;
   overflow-y: scroll;
 `;
 
